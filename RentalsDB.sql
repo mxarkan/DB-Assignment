@@ -20,7 +20,7 @@
         customer_full_name VARCHAR(255) NOT NULL,  -- Required customer name
         -- Like customer full name it can not be empty or blank and use same datatype VARCHAR
         costume_name VARCHAR(255) NOT NULL,        -- Required costume name
-        rent_date DATETIME NOT NULL CHECK (rent_date <= return_date OR rend_date<= CURRENT_TIMESTAMP),  -- No future dates 
+        rent_date DATETIME NOT NULL CHECK (rent_date <= return_date OR rend_date <= CURRENT_TIMESTAMP),  -- No future dates 
         -- I have used a DATETIME datatype to store date and time for the rental informations , can not be empty and  also can not be in the future 
         -- by checking from rent_date is earlier than or equal the return_date (can not be in the future)
         return_date DATETIME NULL CHECK (return_date >= rent_date),
