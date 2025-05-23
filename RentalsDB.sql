@@ -3,7 +3,9 @@
 
     -- DDL COMMANDS : TO DEFINE THE DATABASE PARTS INCLUDING DATABASE NAME , TABLES etc..
     DROP DATABASE IF EXISTS RENTALS;
+    -- IF the database is found it will be deleted
     CREATE DATABASE IF NOT EXISTS RENTALS;
+    -- IF the database is not found it will be created
 
     -- I HAVE USED CREATE COMMAND TO CREATE A DATABASE CALLED RENTALS
     USE  RENTALS;
@@ -36,6 +38,7 @@
     );
 
     -- DML COMMANDS : TO INSERT DATA INTO THE TABLES
+    -- By using bulk inserts I have inserted data into the table 
     INSERT INTO rentals (rental_id, customer_full_name, costume_name, rent_date, return_date, daily_rental_fee) VALUES
     (1, 'Alice Johnson', 'Imperial Officer', '2025-04-01 10:00:00', '2025-04-03 15:30:00', 25),
     (2, 'Bob Smith', 'Galaxy Explorer', '2025-04-02 09:15:00', '2025-04-05 11:00:00', 30),
