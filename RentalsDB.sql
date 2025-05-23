@@ -2,7 +2,8 @@
     -- Student Number : 120210664
 
     -- DDL COMMANDS : TO DEFINE THE DATABASE PARTS INCLUDING DATABASE NAME , TABLES etc..
-    CREATE DATABASE RENTALS;
+    DROP DATABASE IF EXISTS RENTALS;
+    CREATE DATABASE IF NOT EXISTS RENTALS;
 
     -- I HAVE USED CREATE COMMAND TO CREATE A DATABASE CALLED RENTALS
     USE  RENTALS;
@@ -14,13 +15,13 @@
     -- Each row contains every rental informations such as rental_id , customer_full_name , costume_name , rent_date , return_date , daily_rental_fee
 
     -- The rental_id here is a primary key that means it can not be repeated and has auto increment (If a new record recorded it will be add by each time)
-    CREATE TABLE rentals (
+    CREATE TABLE IF NOT EXISTS rentals (
         rental_id INT AUTO_INCREMENT PRIMARY KEY,  -- Auto-incrementing ID 
         -- The customer full name here  has a datatype VARCHAR to store rental name and can not be empty or blank
         customer_full_name VARCHAR(255) NOT NULL,  -- Required customer name
         -- Like customer full name it can not be empty or blank and use same datatype VARCHAR
         costume_name VARCHAR(255) NOT NULL,        -- Required costume name
-        rent_date DATETIME NOT NULL CHECK (rent_date <= return_date OR rent_date <= CURRENT_TIMESTAMP),  -- No future dates 
+        rent_date DATETIME NOT NULL CHECK (rent_date <= return_date),  -- No future dates 
         -- I have used a DATETIME datatype to store date and time for the rental informations , can not be empty and  also can not be in the future 
         -- by checking from rent_date is earlier than or equal the return_date (can not be in the future)
         return_date DATETIME NULL CHECK (return_date >= rent_date),
